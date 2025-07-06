@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Yu Thai Voting</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+    select, button {
+      font-size: 1.2em;
+      margin: 10px;
+      padding: 10px;
+    }
+    #response {
+      margin-top: 30px;
+      font-weight: bold;
+      font-size: 1.5em;
+      color: #c0392b;
+    }
+  </style>
+</head>
+<body>
+  <h1>A che ora da Yu Thai?</h1>
+
+  <select id="timeSelect"></select><br>
+  <button onclick="submitTime()">Invia</button>
+
+  <div id="response"></div>
+
+  <script>
+    function generateTimes() {
+      const select = document.getElementById("timeSelect");
+      for (let h = 19; h <= 21; h++) {
+        for (let m = 0; m < 60; m += 15) {
+          const hour = h.toString().padStart(2, '0');
+          const min = m.toString().padStart(2, '0');
+          const option = document.createElement("option");
+          option.value = `${hour}:${min}`;
+          option.text = `${hour}:${min}`;
+          select.appendChild(option);
+        }
+      }
+      // aggiungiamo anche le 22:00 precise
+      const lastOption = document.createElement("option");
+      lastOption.value = "22:00";
+      lastOption.text = "22:00";
+      select.appendChild(lastOption);
+    }
+
+    function submitTime() {
+      const selected = document.getElementById("timeSelect").value;
+      document.getElementById("response").innerText = "Decide Ale, inutile che voti.";
+    }
+
+    generateTimes();
+  </script>
+</body>
+</html>
+
