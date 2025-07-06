@@ -2,23 +2,63 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yu Thai Voting</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #fceabb, #f8b500);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
       text-align: center;
-      margin-top: 100px;
     }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      color: #222;
+    }
+
     select, button {
-      font-size: 1.2em;
+      font-size: 1.1rem;
+      padding: 12px 20px;
       margin: 10px;
-      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
+
+    button {
+      background-color: #222;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #444;
+    }
+
     #response {
       margin-top: 30px;
       font-weight: bold;
-      font-size: 1.5em;
-      color: #c0392b;
+      font-size: 1.4rem;
+      color: #8e0e00;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.6rem;
+      }
+      select, button {
+        font-size: 1rem;
+        width: 80%;
+      }
     }
   </style>
 </head>
@@ -43,7 +83,6 @@
           select.appendChild(option);
         }
       }
-      // aggiungiamo anche le 22:00 precise
       const lastOption = document.createElement("option");
       lastOption.value = "22:00";
       lastOption.text = "22:00";
@@ -51,7 +90,6 @@
     }
 
     function submitTime() {
-      const selected = document.getElementById("timeSelect").value;
       document.getElementById("response").innerText = "Decide Ale, inutile che voti.";
     }
 
@@ -59,4 +97,3 @@
   </script>
 </body>
 </html>
-
